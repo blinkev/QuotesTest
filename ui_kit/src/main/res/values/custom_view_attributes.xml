@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ThreeTextWithRightIconView">
+        <attr name="text1" />
+        <attr name="text2" />
+        <attr name="text3"/>
+    </declare-styleable>
+
+    <declare-styleable name="ToolbarView">
+        <attr name="leftIcon" />
+        <attr name="rightIcon" />
+        <attr name="android:text"/>
+    </declare-styleable>
+
+</resources>

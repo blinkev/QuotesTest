@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Quotes</string>
+    <string name="favorite_quotes_screen">Favorites</string>
+    <string name="all_quotes_screen">All</string>
+    <string name="instrument_column">Instrument</string>
+    <string name="bid_ask_column">Bid / Ask</string>
+    <string name="spread_column">Spread</string>
+</resources>

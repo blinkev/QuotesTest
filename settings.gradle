@@ -1,0 +1,6 @@
+include ':utils'
+include ':ui_kit'
+include ':domain'
+include ':data'
+include ':app'
+rootProject.name = "Quotes"
