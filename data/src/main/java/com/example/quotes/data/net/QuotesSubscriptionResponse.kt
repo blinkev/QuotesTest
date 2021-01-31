@@ -1,4 +1,4 @@
-package com.example.quotes.data
+package com.example.quotes.data.net
 
 import com.google.gson.annotations.SerializedName
 

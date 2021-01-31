@@ -1,7 +1,8 @@
-package com.example.quotes.data
+package com.example.quotes.data.net
 
 import android.util.Log
 import com.example.quotes.domain.Quote
+import com.example.quotes.utils.JsonHelper
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy

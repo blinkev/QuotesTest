@@ -1,4 +1,4 @@
-package com.example.quotes.data
+package com.example.quotes.data.net
 
 import com.example.quotes.domain.Quote
 import com.example.quotes.utils.ifNotNull
@@ -8,7 +8,8 @@ interface SubscribedListDtoMapper {
     fun map(dto: SubscribedListDto): List<Quote>
 }
 
-class SubscribedListDtoMapperImpl @Inject constructor() : SubscribedListDtoMapper {
+class SubscribedListDtoMapperImpl @Inject constructor() :
+    SubscribedListDtoMapper {
 
     override fun map(dto: SubscribedListDto): List<Quote> = dto.ticks?.mapNotNull {
         ifNotNull(

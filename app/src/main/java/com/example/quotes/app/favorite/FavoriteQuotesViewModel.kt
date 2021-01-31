@@ -31,14 +31,20 @@ class FavoriteQuotesViewModelImpl : BaseViewModel(), FavoriteQuotesViewModel {
 
     override fun deleteQuoteFromFavorites(quote: Quote) {
         quotes.value = quotes.value?.filterNot { it.quote.name == quote.name }
-        repo.removeFavorite(quote)
+        repo.removeFavorite(quote).subscribe()
     }
 
     override fun fetchFavoriteQuotes() {
-        repo.getFavorite().mapNotNull { mapper.mapInitial(it) }.let {
-            quotes.value = it
-            if (it.isNotEmpty()) startUpdates()
-        }
+        repo.getFavorites()
+            .map(mapper::mapInitial)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeAndTrack(
+                onSuccess = { listItems ->
+                    quotes.value = listItems
+                    if (listItems.isNotEmpty()) startUpdates()
+                }
+            )
     }
 
     override fun stopUpdates() {
@@ -46,7 +52,7 @@ class FavoriteQuotesViewModelImpl : BaseViewModel(), FavoriteQuotesViewModel {
     }
 
     override fun onListReordered(list: List<Quote>) {
-        repo.setFavorite(list)
+        repo.setOrder(list).subscribe()
     }
 
     private fun startUpdates() {

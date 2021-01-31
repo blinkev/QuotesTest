@@ -1,4 +1,4 @@
-package com.example.quotes.data
+package com.example.quotes.utils
 
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
@@ -9,7 +9,8 @@ interface JsonHelper {
     fun <T> fromJson(json: String?, objClass: Class<T>): T?
 }
 
-class JsonHelperImpl @Inject constructor() : JsonHelper {
+class JsonHelperImpl @Inject constructor() :
+    JsonHelper {
 
     private val gson = GsonBuilder().create()
 

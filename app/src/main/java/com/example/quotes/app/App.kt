@@ -5,6 +5,7 @@ import com.example.quotes.app.di.DaggerUiComponent
 import com.example.quotes.app.di.UiChildComponentProvider
 import com.example.quotes.app.di.UiComponent
 import com.example.quotes.data.di.DaggerDataComponent
+import io.reactivex.plugins.RxJavaPlugins
 
 class App : Application(), UiChildComponentProvider {
 
@@ -17,5 +18,13 @@ class App : Application(), UiChildComponentProvider {
                 .domainProvider(dataComponent)
                 .appContext(applicationContext)
                 .build()
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+
+        RxJavaPlugins.setErrorHandler {
+            // Ничего не делаем
+        }
     }
 }
